@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title>
+    <style>
+        html,
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+        }
+
+        main {
+            width: 51rem;
+            margin: 1rem auto;
+        }
+
+        input[type="number"],
+        button {
+            text-align: right;
+            padding: 0.5rem;
+        }
+
+        input[type="number"] {
+            width: 10rem;
+            margin-bottom: 0.5rem;
+        }
+
+        button {
+            margin-bottom: 0.5rem;
+        }
+
+        #resp {
+            padding: 0.5rem;
+            background-color: orangered;
+
+            color: white;
+            width: 50rem;
+        }
+
+        .campo {
+            color: yellow;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function imprime(objeto) {
+            var mensagem = `
+                <br>
+                {
+                <br>
+                "<span class='campo'>Pergunta</span>": ${result.question},
+                <br>
+                "<span class='campo'>UF</span>": ${result.correct_answer},
+                <br>
+                "<span class='campo'>Logradouro</span>": ${result.incorrect_answers},
+                <br>
+                "<span class='campo'>Bairro</span>": ${result.incorrect_answers}
+                <br>
+                }
+                <br>`
+            return mensagem;
+        }
+        async function getFilm() {
+            fetch("https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple")
+            .then((response) => response.json())
+                .then((result) => {
+                    console.log(result);
+                    respjson.innerHTML = imprime(json);
+            });
+            .then((result) => result.json())
+        }
+    </script>
+</head>
+
+<body>
+    <main>
+        <h1>Film test</h1>
+        <button onclick="getFilm()">Buscar</button>
+
+        <div id="resp">
+            <p class="campo">Resposta:{
+                " response_code ": 0, " resultados ": [
+                    {
+                        " categoria ": "Entretenimento: Filme", ​​" tipo ": "múltiplo", " dificuldade ": "fácil", " pergunta ": "Quando o filme 'Con Air' foi lançado?", " resposta_correta ": "1997" , " respostas_incorretas ": [
+                            "1985", "1999", "1990"
+                        ]
+                    }, {
+                        " categoria ": "Entretenimento: Filme", ​​" tipo ": "múltiplo", " dificuldade ": "fácil", " pergunta ": "Qual atriz dançou o twist com John Travolta em 'Pulp Fiction'?", " resposta_correta " : "Uma Thurman", " respostas_incorretas ": [
+                            "Kathy Griffin", "Pam Grier", "Bridget Fonda"
+                        ]
+                    }, {
+                        " categoria ": "Entretenimento: Filme", ​​" tipo ": "múltiplo", " dificuldade ": "fácil", " pergunta ": "Qual filme contém a citação, "Diga olá para meu amiguinho!"?", " resposta_correta ":"Scarface", " respostas_incorretas ": [
+                            "Cães de Aluguel", "Calor", "Bons companheiros"
+                        ]
+                    }, {
+                        " categoria ": "Entretenimento: Filme", ​​" tipo ": "múltiplo", " dificuldade ": "fácil", " pergunta ": "Qual era o título do primeiro filme de Bond, lançado em 1962?", " resposta_correta " : "Dr. Não", " respostas_incorretas ": [
+                            "Da Rússia com amor", "Goldfinger", "Thunderball"
+                        ]
+                    }, {
+                        " categoria ": "Entretenimento: Filme", ​​" tipo ": "múltiplo", " dificuldade ": "fácil", " pergunta ": "Qual é o nome do bot laranja e branco em "Star Wars: O Despertar da Força"?" , " resposta_correta ": "BB-8", " respostas_incorretas ": [
+                            "BB-3", "AA-A", "R2-D2"
+                        ]
+                    }, {
+                        " categoria ": "Entretenimento: Filme", ​​" tipo ": "múltiplo", " dificuldade ": "fácil", " pergunta ": "Qual filme inclui um espírito gigante parecido com um coelho que tem poderes mágicos, incluindo árvores em crescimento?", " correct_answer ": "Meu vizinho Totoro", " incorrect_answers ": [
+                            "Hop", "Ascensão dos Guardiões", "Alice no País das Maravilhas"
+                        ]
+                    }, {
+                        " categoria ": "Entretenimento: Filme", ​​" tipo ": "múltiplo", " dificuldade ": "fácil", " pergunta ": "Qual ator interpreta Obi-Wan Kenobi nos episódios I-lll de Star Wars?", " resposta_correta ":"Ewan McGregor"," respostas_incorretas ": [
+                            "Alec Guinness", "Hayden Christensen", "Liam Neeson"
+                        ]
+                    }, {
+                        " categoria ": "Entretenimento: Filme", ​​" tipo ": "múltiplo", " dificuldade ": "fácil", " pergunta ": "No filme "Balto" de 1995, quem são os cúmplices de Steele?", " resposta_correta ": "Kaltag, Nikki e Star", " respostas_incorretas ": [
+                            "Dusty, Kirby e Ralph", "Nuk, Yak e Sumac", "Jenna, Sylvie e Dixie"
+                        ]
+                    }, {
+                        " categoria ": "Entretenimento: Filme", ​​" tipo ": "múltiplo", " dificuldade ": "fácil", " pergunta ": "Qual foi a frase icônica de Bruce Campbell depois de receber uma serra elétrica em Evil Dead 2?" , " correta_resposta ": "Groovy.", " incorreta_respostas ": [
+                            "Gnarly.", "Perfeito.", "Legal."
+                        ]
+                    }, {
+                        " categoria ": "Entretenimento: Filme", ​​" tipo ": "múltiplo", " dificuldade ": "fácil", " pergunta ": "Para o filme "Os Caçadores da Arca Perdida", do que Harrison Ford estava doente durante o filmagem da perseguição no Cairo?", " correct_answer ": "Disenteria", " incorrect_answers ": [
+                            "Anemia", "Constipação", "Refluxo ácido"
+                        ]
+                    }
+                ]
+            }</p>
+            <p id="respjson"></p>
+        </div>
+    </main>
+</body>
+
+</html>
+
